@@ -12,7 +12,7 @@ from handlers.services import ServiceDialog
 from comands import address_keyboard, yes_no
 
 
-router = Router()
+router = Router(name='create_address')
 
 
 class AddressState(StatesGroup):
@@ -21,7 +21,7 @@ class AddressState(StatesGroup):
 
 
 @router.message(StateFilter(None), F.text.in_(address_keyboard))
-async def run_add_address(message: Message, state: FSMContext):
+async def run_create_address(message: Message, state: FSMContext):
     if message.text == address_keyboard[0]:
         await message.answer('Введіть назву для адреси:')
         await state.set_state(AddressState.address_title)

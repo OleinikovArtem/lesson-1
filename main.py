@@ -10,15 +10,17 @@ from aiogram.fsm.storage.memory import MemoryStorage
 from handlers import common, address, services
 from helpers.config_reader import config
 
-import comands
-
 
 bot = Bot(token=config.bot_token.get_secret_value(), parse_mode=ParseMode.HTML)
 dp = Dispatcher(storage=MemoryStorage())
 
 
 async def main():
-    dp.include_routers(common.router, address.router, services.dialog)
+    dp.include_routers(
+        common.router,
+        address.router,
+        services.router,
+    )
     setup_dialogs(dp)
 
     await bot.delete_webhook(drop_pending_updates=True)

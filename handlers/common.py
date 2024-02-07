@@ -6,7 +6,7 @@ from aiogram.utils.markdown import hbold
 from aiogram.filters import CommandStart
 from helpers.make_keyboard import make_row_keyboard
 
-from comands import address_keyboard
+from helpers.comands import address_keyboard
 
 router = Router()
 

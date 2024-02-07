@@ -9,7 +9,7 @@ from helpers.make_keyboard import make_row_keyboard
 
 
 from handlers.services import ServiceDialog
-from comands import address_keyboard, yes_no
+from helpers.comands import address_keyboard, yes_no
 
 
 router = Router(name='create_address')

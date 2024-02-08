@@ -7,6 +7,7 @@ from aiogram.enums import ParseMode
 from aiogram_dialog import setup_dialogs
 from aiogram.fsm.storage.memory import MemoryStorage
 
+from database.db import create_tables
 from handlers import common, address, services
 from helpers.config_reader import config
 
@@ -16,6 +17,8 @@ dp = Dispatcher(storage=MemoryStorage())
 
 
 async def main():
+    await create_tables()
+
     dp.include_routers(
         common.router,
         address.router,

@@ -1,3 +1,4 @@
 .env
 __pycache__
 telegram-bot-env
+mybot.db
